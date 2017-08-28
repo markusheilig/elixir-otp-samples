@@ -74,8 +74,7 @@ defmodule ThySupervisor do
                     |> Map.delete(pid)
                     |> Map.put(new_pid, child_spec)
       {:reply, {:ok, new_pid}, new_state}
-    else
-      err -> IO.inspect "error is #{err}"
+    else      
       {:reply, {:error, "could not restart child"}, state}
     end
 
