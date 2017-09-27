@@ -1,5 +1,5 @@
 defmodule Pooly.SampleWorker do
-  use GenServer  
+  use GenServer
 
   def start_link(_) do
     GenServer.start(__MODULE__, :ok, [])
