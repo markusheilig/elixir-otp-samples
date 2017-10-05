@@ -3,7 +3,7 @@ defmodule Pooly.WorkerSupervisor do
 
   # API
   def start_link({_, _, _} = mfa) do
-    Supervisor.start_link __MODULE__, mfa
+    Supervisor.start_link(__MODULE__, mfa)
   end
 
 
@@ -18,6 +18,6 @@ defmodule Pooly.WorkerSupervisor do
     # 5 restarts within 5 seconds
     opts = [strategy: :simple_one_for_one, max_restarts: 5, max_seconds: 5]
     # create child specification
-    supervise children, opts
+    supervise(children, opts)
   end
 end

@@ -1,10 +1,8 @@
 defmodule WorkerSupervisorTest do
   use ExUnit.Case
 
-  alias Pooly.{WorkerSupervisor, SampleWorker}
-
   test "children are restarted automatically" do
-    {:ok, sup} = WorkerSupervisor.start_link({SampleWorker, :start_link, []})
+    {:ok, sup} = Pooly.WorkerSupervisor.start_link({SampleWorker, :start_link, []})
     {:ok, _} = Supervisor.start_child(sup, [[]])
     {:ok, _} = Supervisor.start_child(sup, [[]])
     {:ok, worker_pid} = Supervisor.start_child(sup, [[]])
